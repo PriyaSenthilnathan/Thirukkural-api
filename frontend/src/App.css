@@ -1,0 +1,102 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* Ensure the card takes full width of its parent */
+    max-width: 400px; /* Set a maximum width for the card */
+    margin: 0 auto; /* Center the card within the column */
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-title, .card-subtitle, .card-text {
+    margin-bottom: 15px;
+}
+
+.card-text span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+}
+
+/* Custom navbar styles */
+.custom-navbar {
+    background-color: #060606; /* Change the navbar color */
+    padding: 500px 50px; /* Increase the navbar height */
+}
+
+.navbar-brand img {
+    width: 150px; /* Increase image width */
+    height: 150px; /* Increase image height */
+    margin-right: 10px; /* Add some space between image and text */
+}
+
+.navbar-brand h1 {
+    font-size: 3rem; /* Increase the font size of the heading */
+    color: #fcfbfb; /* Set the text color */
+    margin: 0;
+}
+
+.update-page {
+    background-color: #E8DFE0; /* Set your desired background color */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-container {
+    background-color: #c5e7f8; /* Set your desired container color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.custom-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #57F7B1; /* Light background color */
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-form {
+    width: 50%;
+    background-color: #aca0d5; /* White background color */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow effect */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    background-color: #cfe0f0c7; /* You can change this color to your preference */
+    padding: 20px;
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+
+.card-container:hover {
+    background-color: #e9ecef; /* Change background color on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
