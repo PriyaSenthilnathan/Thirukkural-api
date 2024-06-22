@@ -13,12 +13,12 @@ const CreateThirukkural = () => {
     const validateKural = (kural) => {
         const lines = kural.split('\n');
         if (lines.length !== 2) {
-            return "குறள் should have 2 lines.";
+            return "குறளில் 2 வரிகள் இருக்க வேண்டும்.";
         }
         const wordsLine1 = lines[0].split(' ').filter(word => word !== '');
         const wordsLine2 = lines[1].split(' ').filter(word => word !== '');
         if (wordsLine1.length !== 4 || wordsLine2.length !== 3) {
-            return "குறள் should have 4 words in the first line and 3 words in the second line.";
+            return "குறளில் முதல் வரியில் 4 வார்த்தைகளும், இரண்டாவது வரியில் 3 வார்த்தைகளும் இருக்க வேண்டும்.";
         }
         return '';
     };
@@ -28,6 +28,10 @@ const CreateThirukkural = () => {
         const error = validateKural(Kural);
         if (error) {
             setValidationError(error);
+            return;
+        }
+        if (!KuralVilakkam) {
+            setValidationError("குறள் விளக்கம் தருக.");
             return;
         }
         setValidationError('');

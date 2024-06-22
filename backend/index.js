@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://priyadarshinis22cse:mU1fsJzW4XaPTm2q@cluster0.8voluel.mongodb.net/").then(()=>{
+mongoose.connect("mongodb+srv://priyadarshinis22cse:mU1fsJzW4XaPTm2q@cluster0.8voluel.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log("DB connected successfully")
 })
 

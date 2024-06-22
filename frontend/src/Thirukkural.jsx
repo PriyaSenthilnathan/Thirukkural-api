@@ -5,13 +5,18 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'; 
+import './quiz';
 
 const Thirukkural = () => {
     const [thirukkurals, setThirukkurals] = useState([]);
+    const [showQuiz, setShowQuiz] = useState(false);
 
     useEffect(() => {
         axios.get('https://thirukkural-api-dycp.onrender.com')
-            .then(results => setThirukkurals(results.data))
+            .then(results => {
+                const sortedData = results.data.sort((a, b) => parseInt(a.KuralEn) - parseInt(b.KuralEn));
+                setThirukkurals(sortedData);
+            })
             .catch(err => console.log(err));
     }, []);
 
@@ -22,6 +27,13 @@ const Thirukkural = () => {
                 setThirukkurals(thirukkurals.filter(kural => kural._id !== id));
             })
             .catch(err => console.log(err));
+    };
+
+    const handleSpeak = (kural, vilakkam) => {
+        const synth = window.speechSynthesis;
+        const utterance = new SpeechSynthesisUtterance(`குறள்: ${kural}. குறள் விளக்கம்: ${vilakkam}`);
+        utterance.lang = 'ta-IN';  // Set the language to Tamil
+        synth.speak(utterance);
     };
 
     return (
@@ -53,7 +65,8 @@ const Thirukkural = () => {
                                     <p className="card-text"><b>குறள் விளக்கம்:</b> {thirukkural.KuralVilakkam}</p>
                                     <div className="d-flex justify-content-between">
                                         <Link to={`/update/${thirukkural._id}`} className="btn btn-primary">தரவை புதுபிக்க</Link>
-                                        <button className="btn btn-danger" onClick={() => handleDelete(thirukkural._id)}>குறளை நீக்க</button>
+                                        <button className="btn btn-danger" onClick={() => handleDelete(thirukkural._id)}>குறளை நீக்க</button><br></br>
+                                        <button className="btn btn-secondary" onClick={() => handleSpeak(thirukkural.Kural, thirukkural.KuralVilakkam)}>🔊</button>
                                     </div>
                                 </div>
                             </div>
